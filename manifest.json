@@ -1,0 +1,48 @@
+{
+
+  "manifest_version": 2,
+  "name": "QAF",
+  "version": "0.1.9",
+
+  "description": "QAF Tool Addon",
+
+ 
+  "browser_action": {
+    "default_icon": {
+     "32": "data/QAF32.png"
+    },
+    "default_title": "QAF",
+	"browser_style": true
+  },
+  
+  "background": {
+  "persistent": true,
+  "scripts": [
+  "QAF-background-script.js"
+  ]
+},
+
+"content_scripts": [
+  {
+    "matches": ["<all_urls>","http://*/*","https://*/*"],
+    "js": ["QAF-content-script.js"],
+	 "run_at": "document_end"
+  }
+],
+
+"permissions": [
+   "activeTab",
+    "tabs",
+    "storage",
+    "<all_urls>",
+	"http://*/*", 
+	"https://*/*",
+	"file:///*",
+	"notifications"
+  ],
+  
+   "developer": {
+  "name": "Amol Dhole"
+}
+
+}
